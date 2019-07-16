@@ -14,8 +14,8 @@
  */
 
 
-const MODEL_OBJ_URL = './assets/ArcticFox_Posed.obj';
-const MODEL_MTL_URL = './assets/ArcticFox_Posed.mtl';
+var MODEL_OBJ_URL = './assets/ArcticFox_Posed.obj';
+var MODEL_MTL_URL = './assets/ArcticFox_Posed.mtl';
 const MODEL_SCALE = 0.1;
 
 /**
@@ -25,17 +25,22 @@ const MODEL_SCALE = 0.1;
 class App {
 
   constructor() {
+    this.openModal();
+
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
     this.onClick = this.onClick.bind(this);
 
     var btn = document.getElementById("closeBtn");
     btn.onclick = this.closeModal;
+
+    var handOne = document.getElementById("hand1Select");
+    handOne.onclick = this.setModelObject(1);
 //    var span = document.getElementsByClassName("close");
 //    span.onclick = function() {
 //     modal.style.display = "none";
 //   }
-   this.openModal();
+ 
  
     this.init();
     
@@ -48,6 +53,15 @@ class App {
   closeModal()
   {
     document.getElementById("myModal").style.display = "none";
+  }
+
+  setModelObject(number)
+  {
+      if(number == 1)
+      {
+        MODEL_OBJ_URL = './assets/' + 'Hand_1.obj';
+        MODEL_MTL_URL = './assets/' + 'Hand_1.mtl';
+      }
   }
   /**
    * Fetches the XRDevice, if available.
@@ -64,15 +78,15 @@ class App {
         // `requestDevice()` rejects the promise. Catch our
         // awaited promise and display message indicating there
         // are no valid devices.
-        this.onNoXRDevice();
-        return;
+        // this.onNoXRDevice();
+        // return;
       }
     } else {
       // If `navigator.xr` or `XRSession.prototype.requestHitTest`
       // does not exist, we must display a message indicating there
       // are no valid devices.
-      this.onNoXRDevice();
-      return;
+      // this.onNoXRDevice();
+      // return;
     }
 
     // We found an XRDevice! Bind a click listener on our "Enter AR" button
