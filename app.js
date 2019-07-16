@@ -36,6 +36,12 @@ class App {
 
     var handOne = document.getElementById("hand1Select");
     handOne.onclick = this.setModelObject(1);
+
+    var handOne = document.getElementById("hand2Select");
+    handOne.onclick = this.setModelObject(2);
+
+    var handOne = document.getElementById("hand3Select");
+    handOne.onclick = this.setModelObject(3);
 //    var span = document.getElementsByClassName("close");
 //    span.onclick = function() {
 //     modal.style.display = "none";
@@ -61,6 +67,16 @@ class App {
       {
         MODEL_OBJ_URL = './assets/' + 'Hand_1.obj';
         MODEL_MTL_URL = './assets/' + 'Hand_1.mtl';
+      }
+      if(number == 2)
+      {
+        MODEL_OBJ_URL = './assets/' + 'Hand_2.obj';
+        MODEL_MTL_URL = './assets/' + 'Hand_2.mtl';
+      }
+      if(numner == 3)
+      {
+        MODEL_OBJ_URL = './assets/' + 'Hand_3.obj';
+        MODEL_MTL_URL = './assets/' + 'Hand_3.mtl';
       }
   }
   /**
