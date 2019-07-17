@@ -14,8 +14,8 @@
  */
 
 
-var MODEL_OBJ_URL = './assets/ArcticFox_Posed.obj';
-var MODEL_MTL_URL = './assets/ArcticFox_Posed.mtl';
+var MODEL_OBJ_URL = './assets/Hand_1.obj';
+var MODEL_MTL_URL = './assets/Hand_1.mtl';
 const MODEL_SCALE = 0.1;
 
 /**
@@ -35,19 +35,23 @@ class App {
     btn.onclick = this.closeModal;
 
     var handOne = document.getElementById("hand1Select");
-    handOne.onclick = this.setModelObject(1);
+    handOne.onclick = function(){
+      MODEL_OBJ_URL = './assets/Hand_1.obj';
+      MODEL_MTL_URL = './assets/Hand_1.mtl';
+    }
 
-    var handOne = document.getElementById("hand2Select");
-    handOne.onclick = this.setModelObject(2);
+    var handTwo = document.getElementById("hand2Select");
+    handTwo.onclick = function(){
+      MODEL_OBJ_URL = './assets/Hand_2.obj';
+      MODEL_MTL_URL = './assets/Hand_2.mtl';
+    }
 
-    var handOne = document.getElementById("hand3Select");
-    handOne.onclick = this.setModelObject(3);
-//    var span = document.getElementsByClassName("close");
-//    span.onclick = function() {
-//     modal.style.display = "none";
-//   }
- 
- 
+    var handThree = document.getElementById("hand3Select");
+    handOne.onclick = function(){
+      MODEL_OBJ_URL = './assets/Hand_3.obj';
+      MODEL_MTL_URL = './assets/Hand_3.mtl';
+    }
+
     this.init();
     
   }
@@ -59,25 +63,6 @@ class App {
   closeModal()
   {
     document.getElementById("myModal").style.display = "none";
-  }
-
-  setModelObject(number)
-  {
-      if(number == 1)
-      {
-        MODEL_OBJ_URL = './assets/' + 'Hand_1.obj';
-        MODEL_MTL_URL = './assets/' + 'Hand_1.mtl';
-      }
-      if(number == 2)
-      {
-        MODEL_OBJ_URL = './assets/' + 'Hand_2.obj';
-        MODEL_MTL_URL = './assets/' + 'Hand_2.mtl';
-      }
-      if(numner == 3)
-      {
-        MODEL_OBJ_URL = './assets/' + 'Hand_3.obj';
-        MODEL_MTL_URL = './assets/' + 'Hand_3.mtl';
-      }
   }
   /**
    * Fetches the XRDevice, if available.
