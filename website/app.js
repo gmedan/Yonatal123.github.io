@@ -13,53 +13,58 @@
  * limitations under the License.
  */
 
-
 var MODEL_OBJ_URL = './assets/Hand_1.obj';
 var MODEL_MTL_URL = './assets/Hand_1.mtl';
-const MODEL_SCALE = 0.1;
-
+const MODEL_SCALE = 0.0005;
+var pressedZoomIn = false;
 /**
  * Container class to manage connecting to the WebXR Device API
  * and handle rendering on every frame.
  */
 class App {
-
   constructor() {
-
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
     this.onClick = this.onClick.bind(this);
-
+   
     var handOne = document.getElementById("hand1Select");
     handOne.onclick = function(){
       MODEL_OBJ_URL = './assets/Hand_1.obj';
       MODEL_MTL_URL = './assets/Hand_1.mtl';
+      document.getElementById("ModelSelectionDropDown").style.display = "none";
     }
 
     var handTwo = document.getElementById("hand2Select");
     handTwo.onclick = function(){
       MODEL_OBJ_URL = './assets/Hand_2.obj';
       MODEL_MTL_URL = './assets/Hand_2.mtl';
+      document.getElementById("ModelSelectionDropDown").style.display = "none";
     }
 
     var handThree = document.getElementById("hand3Select");
     handOne.onclick = function(){
       MODEL_OBJ_URL = './assets/Hand_3.obj';
       MODEL_MTL_URL = './assets/Hand_3.mtl';
+      document.getElementById("ModelSelectionDropDown").style.display = "none";
     }
 
     var mainContent = document.getElementById("enter-ar-info");
     var loginForm = document.getElementById("loginForm");
     var saveUserBtn = document.getElementById("saveUserBtn");
     saveUserBtn.onclick = function(){
-      loginForm.style.display = "none";
-      mainContent.style.display = "block";
-      document.getElementById("UserLabel").innerHTML = document.getElementById("fullName").value + ' ' + document.getElementById("id").value;
+        loginForm.style.display = "none";
+        mainContent.style.display = "block";
+        document.getElementById("UserLabel").innerHTML = document.getElementById("fullName").value + ' ' + document.getElementById("id").value;
+    }
+
+    var zoomInButton = document.getElementById("zoomInBtn");
+    zoomInButton.onclick = function(){
+     pressedZoomIn = true;
     }
 
     this.init();
-    
   }
+
 
   /**
    * Fetches the XRDevice, if available.
@@ -97,6 +102,7 @@ class App {
    * Handle a click event on the '#enter-ar' button and attempt to
    * start an XRSession.
    */
+
   async onEnterAR() {
     // Now that we have an XRDevice, and are responding to a user
     // gesture, we must create an XRPresentationContext on a
@@ -256,7 +262,7 @@ class App {
       return;
     }
 
-    // We're going to be firing a ray from the center of the screen.
+      // We're going to be firing a ray from the center of the screen.
     // The requestHitTest function takes an x and y coordinate in
     // Normalized Device Coordinates, where the upper left is (-1, 1)
     // and the bottom right is (1, -1). This makes (0, 0) our center.
@@ -298,18 +304,15 @@ class App {
 
       // Now apply the position from the hitMatrix onto our model.
       this.model.position.setFromMatrixPosition(hitMatrix);
-
       // Rather than using the rotation encoded by the `modelMatrix`,
       // rotate the model to face the camera. Use this utility to
       // rotate the model only on the Y axis.
       DemoUtils.lookAtOnY(this.model, this.camera);
-    
+
       // Ensure our model has been added to the scene.
-      this.scene.add(this.model);
+      this.scene.add(this.model); 
     }
   }
 };
-
-
 
 window.app = new App();
