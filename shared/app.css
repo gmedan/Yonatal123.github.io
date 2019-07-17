@@ -45,11 +45,26 @@ div.demo-card {
   background-color: rgb(96, 125, 139);
 }
 
+#loginForm{
+  color: #fff;
+  left: 10%;
+  margin: 1em 1em 2em 1em;
+  position: absolute;
+}
+
+#UserLabel{
+  margin: 5px 5px 5px 10px;
+}
+
 body.unsupported #enter-ar-info {
   display: none;
 }
 
 body.ar #enter-ar-info {
+  display: none;
+}
+
+#enter-ar-info{
   display: none;
 }
 
@@ -127,14 +142,6 @@ body.ar.stabilized #stabilization {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
 
 /* The Close Button */
 .close {

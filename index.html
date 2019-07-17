@@ -29,6 +29,7 @@
     <div id="enter-ar-info" class="demo-card mdl-card mdl-shadow--4dp">
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">Palm Measure</h2>
+        <label id="UserLabel"></label>
       </div>
           <div class="dropdown">
               <button class="dropbtn">Select Hand Model</button>
@@ -39,19 +40,21 @@
               </div>
             </div>
       <div class="mdl-card__actions mdl-card--border">
-        <a id="enter-ar" class="mdl-button mdl-button--raised mdl-button--accent">
-          Start augmented reality
+        <a id="enter-ar" class="mdl-button mdl-button--raised mdl-button--colored">
+          Start
         </a>
       </div>
     </div>
-        <!-- The Modal -->
-<div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-          <input></input>
-          <button id="closeBtn">Save</button>
+    <div id="loginForm">
+            FULL NAME:<br>
+            <input type="text" id="fullName">
+            <br>
+            ID:<br>
+            <input type="text" id="id">
+            <br><br>
+            <button id="saveUserBtn" class="mdl-button mdl-button--raised mdl-button--colored">SAVE</button>
     </div>
-  </div>
+
     <div id="unsupported-info" class="demo-card mdl-card mdl-shadow--4dp">
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">Unsupported Browser</h2>

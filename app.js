@@ -25,14 +25,10 @@ const MODEL_SCALE = 0.1;
 class App {
 
   constructor() {
-    this.openModal();
 
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
     this.onClick = this.onClick.bind(this);
-
-    var btn = document.getElementById("closeBtn");
-    btn.onclick = this.closeModal;
 
     var handOne = document.getElementById("hand1Select");
     handOne.onclick = function(){
@@ -52,18 +48,19 @@ class App {
       MODEL_MTL_URL = './assets/Hand_3.mtl';
     }
 
+    var mainContent = document.getElementById("enter-ar-info");
+    var loginForm = document.getElementById("loginForm");
+    var saveUserBtn = document.getElementById("saveUserBtn");
+    saveUserBtn.onclick = function(){
+      loginForm.style.display = "none";
+      mainContent.style.display = "block";
+      document.getElementById("UserLabel").innerHTML = document.getElementById("fullName").value + ' ' + document.getElementById("id").value;
+    }
+
     this.init();
     
   }
-  openModal()
-  {
-    document.getElementById("myModal").style.display = "block";
-  }
 
-  closeModal()
-  {
-    document.getElementById("myModal").style.display = "none";
-  }
   /**
    * Fetches the XRDevice, if available.
    */
