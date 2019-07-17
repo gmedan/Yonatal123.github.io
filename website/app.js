@@ -76,15 +76,15 @@ class App {
         // `requestDevice()` rejects the promise. Catch our
         // awaited promise and display message indicating there
         // are no valid devices.
-        // this.onNoXRDevice();
-        // return;
+        this.onNoXRDevice();
+        return;
       }
     } else {
       // If `navigator.xr` or `XRSession.prototype.requestHitTest`
       // does not exist, we must display a message indicating there
       // are no valid devices.
-      // this.onNoXRDevice();
-      // return;
+      this.onNoXRDevice();
+      return;
     }
 
     // We found an XRDevice! Bind a click listener on our "Enter AR" button
@@ -101,6 +101,7 @@ class App {
     // Now that we have an XRDevice, and are responding to a user
     // gesture, we must create an XRPresentationContext on a
     // canvas element.
+    document.getElementById("enter-ar-info").style.display = "none";
     const outputCanvas = document.createElement('canvas');
     const ctx = outputCanvas.getContext('xrpresent');
 
