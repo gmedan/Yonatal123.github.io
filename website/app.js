@@ -15,8 +15,9 @@
 
 var MODEL_OBJ_URL = './assets/Hand_1.obj';
 var MODEL_MTL_URL = './assets/Hand_1.mtl';
-const MODEL_SCALE = 0.0005;
+const MODEL_SCALE = 0.001;
 var pressedZoomIn = false;
+var pressedZoomOut = false;
 /**
  * Container class to manage connecting to the WebXR Device API
  * and handle rendering on every frame.
@@ -60,6 +61,11 @@ class App {
     var zoomInButton = document.getElementById("zoomInBtn");
     zoomInButton.onclick = function(){
      pressedZoomIn = true;
+    }
+
+    var zoomOutButton = document.getElementById("zoomOutBtn");
+    zoomOutButton.onclick = function(){
+      pressedZoomOut = true;
     }
 
     this.init();
@@ -262,6 +268,19 @@ class App {
       return;
     }
 
+    if(pressedZoomOut){  
+      pressedZoomOut = false; 
+      this.model.scale.set(this.model.scale.x / 3, this.model.scale.x / 3, this.model.scale.x / 3);
+      this.model.update();
+      return;
+    }
+    
+    if(pressedZoomIn){ 
+      pressedZoomIn = false;  
+      this.model.scale.set(this.model.scale.x * 3, this.model.scale.x * 3, this.model.scale.x * 3);
+      this.model.update();
+      return;
+  }
       // We're going to be firing a ray from the center of the screen.
     // The requestHitTest function takes an x and y coordinate in
     // Normalized Device Coordinates, where the upper left is (-1, 1)
@@ -307,7 +326,7 @@ class App {
       // Rather than using the rotation encoded by the `modelMatrix`,
       // rotate the model to face the camera. Use this utility to
       // rotate the model only on the Y axis.
-      DemoUtils.lookAtOnY(this.model, this.camera);
+      // DemoUtils.lookAtOnY(this.model, this.camera);
 
       // Ensure our model has been added to the scene.
       this.scene.add(this.model); 
