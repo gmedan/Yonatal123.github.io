@@ -45,11 +45,32 @@ div.demo-card {
   background-color: rgb(96, 125, 139);
 }
 
-#loginForm{
+.loginForm{
   color: #fff;
   left: 10%;
   margin: 1em 1em 2em 1em;
   position: absolute;
+  background-color: rgb(59, 144, 170);
+}
+
+.FormLabel{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#saveUserBtn{
+  margin: 10px;
+}
+
+.field{
+  margin: 10px 10px 10px 10px;
+}
+
+.ZoomBtn{
+  width: 50px;
+  height: 50px;
+  background-color: #FF8000;
+  margin: 10px;
 }
 
 #UserLabel{
@@ -127,36 +148,7 @@ body.ar.stabilized #stabilization {
   display: none;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 /* Style The Dropdown Button */
 .dropbtn {
