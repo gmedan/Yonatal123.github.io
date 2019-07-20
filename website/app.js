@@ -18,6 +18,7 @@ var MODEL_MTL_URL = './assets/Hand_1.mtl';
 const MODEL_SCALE = 0.001;
 var pressedZoomIn = false;
 var pressedZoomOut = false;
+var selectedModel;
 /**
  * Container class to manage connecting to the WebXR Device API
  * and handle rendering on every frame.
@@ -27,7 +28,7 @@ class App {
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
     this.onClick = this.onClick.bind(this);
-   
+ 
     var handOne = document.getElementById("hand1Select");
     handOne.onclick = function(){
       MODEL_OBJ_URL = './assets/Hand_1.obj';
@@ -114,6 +115,7 @@ class App {
     // gesture, we must create an XRPresentationContext on a
     // canvas element.
     document.getElementById("enter-ar-info").style.display = "none";
+    document.getElementById("ZoomBtnDiv").style.display = "true";
     const outputCanvas = document.createElement('canvas');
     const ctx = outputCanvas.getContext('xrpresent');
 
@@ -270,14 +272,14 @@ class App {
 
     if(pressedZoomOut){  
       pressedZoomOut = false; 
-      this.model.scale.set(this.model.scale.x / 3, this.model.scale.x / 3, this.model.scale.x / 3);
+      this.model.scale.set(this.model.scale.x * 0.8, this.model.scale.x * 0.8, this.model.scale.x * 0.8);
       this.model.update();
       return;
     }
     
     if(pressedZoomIn){ 
       pressedZoomIn = false;  
-      this.model.scale.set(this.model.scale.x * 3, this.model.scale.x * 3, this.model.scale.x * 3);
+      this.model.scale.set(this.model.scale.x * 1.2, this.model.scale.x * 1.2, this.model.scale.x * 1.2);
       this.model.update();
       return;
   }
