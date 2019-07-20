@@ -66,16 +66,10 @@ div.demo-card {
   margin: 10px 10px 10px 10px;
 }
 
-.ZoomBtn{
-  width: 50px;
-  height: 50px;
-  background-color: #FF8000;
-  margin: 10px;
-}
-
-#UserLabel{
+#UserLabel {
   margin: 5px 5px 5px 10px;
 }
+
 
 body.unsupported #enter-ar-info {
   display: none;
@@ -109,9 +103,24 @@ body.unsupported #unsupported-info {
   text-align: center;
   display: none;
   width: 100%;
+
+}
+.ZoomButtons{
+  position: absolute;
+  z-index: 10;
+  left: 80vw;
+  margin-top: 50vw;
+  margin-left: -20px;
+  display: block;
+  display: none;
 }
 
-body.ar #info {
+.ZoomButtons button{
+  display: block;
+  margin: 20px;
+}
+
+body.ar #ZoomBtnDiv {
   display: block;
 }
 
