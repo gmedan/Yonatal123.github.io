@@ -1,3 +1,4 @@
+    
 /*
  * Copyright 2017 Google Inc. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -18,7 +19,7 @@ var MODEL_MTL_URL = './assets/Hand_1.mtl';
 const MODEL_SCALE = 0.001;
 var pressedZoomIn = false;
 var pressedZoomOut = false;
-var selectedModel;
+
 /**
  * Container class to manage connecting to the WebXR Device API
  * and handle rendering on every frame.
@@ -28,27 +29,71 @@ class App {
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
     this.onClick = this.onClick.bind(this);
- 
-    var handOne = document.getElementById("hand1Select");
-    handOne.onclick = function(){
-      MODEL_OBJ_URL = './assets/Hand_1.obj';
-      MODEL_MTL_URL = './assets/Hand_1.mtl';
-      document.getElementById("ModelSelectionDropDown").style.display = "none";
-    }
 
-    var handTwo = document.getElementById("hand2Select");
-    handTwo.onclick = function(){
-      MODEL_OBJ_URL = './assets/Hand_2.obj';
-      MODEL_MTL_URL = './assets/Hand_2.mtl';
-      document.getElementById("ModelSelectionDropDown").style.display = "none";
+    var modelImage = document.getElementById("ModelImage");
+    var select = document.getElementById("ModelSelector");
+    select.onchange= function(){
+      var value = select[select.selectedIndex].value;
+      if(value == "Hand1"){
+        modelImage.src = "assets/Hand1Image.png";
+        MODEL_OBJ_URL = './assets/Hand_1.obj';
+        MODEL_MTL_URL = './assets/Hand_1.mtl';
+      }
+      if(value == "Hand2"){
+        modelImage.src = "assets/Hand2Image.png";
+        MODEL_OBJ_URL = './assets/Hand_2.obj';
+        MODEL_MTL_URL = './assets/Hand_2.mtl';
+      }
+      if(value == "Hand3"){
+        modelImage.src = "assets/Hand3Image.png";
+        MODEL_OBJ_URL = './assets/Hand_3.obj';
+        MODEL_MTL_URL = './assets/Hand_3.mtl';
+      }
     }
+    // var one = document.getElementById("hand1Selection");
+    // one.onclick = function(){
+    //   document.getElementById("ModelLabel").innerHTML = "Hand1";
+    //   MODEL_OBJ_URL = './assets/Hand_1.obj';
+    //   MODEL_MTL_URL = './assets/Hand_1.mtl';
+    // }
 
-    var handThree = document.getElementById("hand3Select");
-    handOne.onclick = function(){
-      MODEL_OBJ_URL = './assets/Hand_3.obj';
-      MODEL_MTL_URL = './assets/Hand_3.mtl';
-      document.getElementById("ModelSelectionDropDown").style.display = "none";
-    }
+    // var two = document.getElementById("hand2Selection");
+    // two.onclick = function(){
+    //   document.getElementById("ModelLabel").innerHTML = "Hand2";
+    //   MODEL_OBJ_URL = './assets/Hand_2.obj';
+    //   MODEL_MTL_URL = './assets/Hand_2.mtl';
+    // }
+
+    // var three = document.getElementById("hand3Selection");
+    // three.onclick = function(){
+    //   document.getElementById("ModelLabel").innerHTML = "Hand3";
+    //   MODEL_OBJ_URL = './assets/Hand_3.obj';
+    //   MODEL_MTL_URL = './assets/Hand_3.mtl';
+    // }
+
+    // var handOne = document.getElementById("hand1Select");
+    // handOne.onselect = function(){
+    //   document.getElementById("ModelLabel").innerHTML = "Hand1";
+    //   MODEL_OBJ_URL = './assets/Hand_1.obj';
+    //   MODEL_MTL_URL = './assets/Hand_1.mtl';
+    //   document.getElementById("ModelSelectionDropDown").style.display = "none";
+    // }
+
+    // var handTwo = document.getElementById("hand2Select");
+    // handTwo.onselect = function(){
+    //   document.getElementById("ModelLabel").innerHTML = "Hand2";
+    //   MODEL_OBJ_URL = './assets/Hand_2.obj';
+    //   MODEL_MTL_URL = './assets/Hand_2.mtl';
+    //   document.getElementById("ModelSelectionDropDown").style.display = "none";
+    // }
+
+    // var handThree = document.getElementById("hand3Select");
+    // handOne.onselect = function(){
+    //   document.getElementById("ModelLabel").innerHTML = "Hand3";
+    //   MODEL_OBJ_URL = './assets/Hand_3.obj';
+    //   MODEL_MTL_URL = './assets/Hand_3.mtl';
+    //   document.getElementById("ModelSelectionDropDown").style.display = "none";
+    // }
 
     var mainContent = document.getElementById("enter-ar-info");
     var loginForm = document.getElementById("loginForm");
@@ -337,3 +382,5 @@ class App {
 };
 
 window.app = new App();
+
+About

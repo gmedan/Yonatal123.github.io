@@ -28,16 +28,24 @@
     <div id="enter-ar-info" class="demo-card mdl-card mdl-shadow--4dp">
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">Palm Measure </h2>
-        <label id="UserLabel"></label>
+        <label id="UserLabel">Hand1</label>
       </div>
-      <div class="dropdown">
+      <select id="ModelSelector">
+          <option value="Hand1" id="hand1Selection">Hand1</option>
+          <option value="Hand2" id="hand2Selection">Hand2</option>
+          <option value="Hand3" id="hand3Selection">Hand3</option>
+        </select>
+        <br>
+        <image id="ModelImage" src="assets/Hand1Image.png" style="background-size:30px 30px; background-repeat: no-repeat; background-position: right;"></image>
+      <!-- <div class="dropdown">
         <button class="dropbtn">Select Hand Model</button>
+        <label id="ModelLabel"></label>
         <div class="dropdown-content" id="ModelSelectionDropDown">
-          <a href="#" style="background-image:url(assets/Hand1Image.png); background-size:30px 30px; background-repeat: no-repeat; background-position: right;" id="hand1Select">Hand 1</a>
-          <a href="#" style="background-image:url(assets/Hand2Image.png); background-size:30px 30px; background-repeat: no-repeat; background-position: right;" id="hand2Select">Hand 2</a>
-          <a href="#" style="background-image:url(assets/Hand3Image.png); background-size:30px 30px; background-repeat: no-repeat; background-position: right;" id="hand3Select">Hand 3</a>
+          <a style="background-image:url(assets/Hand1Image.png); background-size:30px 30px; background-repeat: no-repeat; background-position: right;" id="hand1Select">Hand 1</a>
+          <a style="background-image:url(assets/Hand2Image.png); background-size:30px 30px; background-repeat: no-repeat; background-position: right;" id="hand2Select">Hand 2</a>
+          <a  style="background-image:url(assets/Hand3Image.png); background-size:30px 30px; background-repeat: no-repeat; background-position: right;" id="hand3Select">Hand 3</a>
         </div>
-      </div>
+      </div> -->
       <div class="mdl-card__actions mdl-card--border">
         <a id="enter-ar" class="mdl-button mdl-button--raised mdl-button--colored">
           Start
